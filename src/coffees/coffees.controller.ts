@@ -44,16 +44,17 @@ export class CoffeesController {
 
   @Post()
   // @HttpCode(HttpStatus.GONE)
-  create(@Body() body: CreateCoffeeDto) {
+  create(@Body() createCoffeeDto: CreateCoffeeDto) {
     // @Body('name) --> use with caution, validation issues
     // return body;
-    return this.coffeeService.create(body);
+    console.log(createCoffeeDto instanceof CreateCoffeeDto);
+    return this.coffeeService.create(createCoffeeDto);
   }
 
   @Patch(':id')
-  update(@Param('id') id: string, @Body() body: UpdateCoffeeDto) {
+  update(@Param('id') id: string, @Body() createCoffeeDto: UpdateCoffeeDto) {
     // return `This action updates #${id}  coffee`;
-    return this.coffeeService.update(id, body);
+    return this.coffeeService.update(id, createCoffeeDto);
   }
 
   @Delete(':id')
